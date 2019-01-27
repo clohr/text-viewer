@@ -38,14 +38,15 @@ type alias Model =
 
 type alias Flags =
     { language : String
+    , url : String
     }
 
 
 init : Flags -> ( Model, Cmd Msg )
-init { language } =
+init { language, url } =
     ( Model Loading language
     , Http.get
-        { url = "https://elm-lang.org/assets/public-opinion.txt"
+        { url = url
         , expect = Http.expectString GotText
         }
     )
