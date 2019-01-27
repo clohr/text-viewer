@@ -12,7 +12,10 @@
     <script src="./main.min.js"></script>
     <script>
         var app = Elm.Main.init({
-            node: document.getElementById('app')
+            node: document.getElementById('app'),
+            flags: {
+                language: 'text'
+            }
         });
     </script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.js"></script>

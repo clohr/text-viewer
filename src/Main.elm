@@ -1,4 +1,4 @@
-module Main exposing (Model, Msg(..), init, main, subscriptions, update, view)
+module Main exposing (Model, Msg(..), State(..), init, main, subscriptions, update, view)
 
 import Browser
 import Html exposing (Html, code, div, pre, text)
@@ -36,9 +36,14 @@ type alias Model =
     }
 
 
-init : () -> ( Model, Cmd Msg )
-init _ =
-    ( Model Loading "text"
+type alias Flags =
+    { language : String
+    }
+
+
+init : Flags -> ( Model, Cmd Msg )
+init { language } =
+    ( Model Loading language
     , Http.get
         { url = "https://elm-lang.org/assets/public-opinion.txt"
         , expect = Http.expectString GotText
@@ -88,9 +93,7 @@ view { state, language } =
             pre
                 []
                 [ code
-                    [ class <| createClass language
-                    , id "textElem"
-                    ]
+                    [ class <| createClass language ]
                     [ text str ]
                 ]
 

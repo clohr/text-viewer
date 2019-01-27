@@ -1,4 +1,4 @@
-.PHONY: all build minify serve clean
+.PHONY: all build minify serve test clean
 
 all: clean build minify
 
@@ -10,6 +10,9 @@ minify:
 
 serve:
 		cd dist; python -m http.server 3000
+
+test:
+		elm-test
 
 clean:
 		@echo "Cleaning up..."

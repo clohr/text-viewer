@@ -12,3 +12,6 @@ Uses [Prism.js](https://prismjs.com/) and [Elm](https://elm-lang.org/) to create
 
 ## Run Web Server
 `make serve`
+
+## Run Tests
+`make test`
